@@ -20,6 +20,9 @@
 ### Default Color Map:
 [Temple/TinkerOS default color maps](https://tinkeros.github.io/palette.html)
 
+### You can change colors 0-254 to be whatever RGB888 value you want with:
+ - `GrSetRGB(I64 color_number, U8 red, U8 green, U8 blue);`
+
 ## Examples (cool things you can draw with <= 2000 discord characters):
 
 ### 42x42 Chad
