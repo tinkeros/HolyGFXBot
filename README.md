@@ -20,10 +20,10 @@
 - The dc/image width is `TR_WIDTH` and height is `TR_HEIGHT` (set by width/height parameters following hg or hgds)
 
 ### Drawing:
-  - The standard TempleOS graphics API can be used to draw to `dc`
+  - The standard TempleOS graphics API can be used to draw to `dc`  [TempleOS graphics routines](https://tinkeros.github.io/WbTempleOS/LiveHelp/Graphics.html)
   - Color pixel at x,y with color c manually by: `dc->body[y*dc->width+x]=c;`
 
-### Default Color Map:
+### Setting Pen Color and Default Color Map:
   - Set color number with `dc->color=NUMBER;`
   - Get color numbers from [Temple/TinkerOS default color maps](https://tinkeros.github.io/palette.html)
   - You can also use the TempleOS color defines `BLACK`, `BLUE`, ... `WHITE`   [TempleOS color defines](https://tinkeros.github.io/WbTempleOS/Kernel/KernelA.html#l2914)
