@@ -8,6 +8,7 @@
 ### Optional space delimited dimension parameters (each should be a multiple of 8):
 - `width` - image width (default 240, up to 1920)
 - `height` - image height (default 240, up to 1080)
+- In your code the dc/image width is available as `TR_WIDTH` and height as `TR_HEIGHT`
 
 ### Required code parameter only 1 of the following:
 - Code block of text
@@ -17,7 +18,6 @@
 - Define up to 100 frames to be drawn with `#define NUM_FRAMES 100`
 - Use frame count variable `frame_num` in your code to change what you draw (goes from 0 to NUM_FRAMES - 1).
 - Each frame is drawn for 1/10th of a second.
-- The dc/image width is `TR_WIDTH` and height is `TR_HEIGHT` (set by width/height parameters following hg or hgds)
 
 ### Setting Pen Color and Default Color Map:
   - Set color number with `dc->color=NUMBER;`
