@@ -33,6 +33,7 @@
   - Color pixel at x,y with color c manually by: `dc->body[y*dc->width+x]=c;`
 
 ### Drawing (Simplified Turtle API)
+  - See [available Turtle API drawing functions](https://tinkeros.github.io/HolyGFX/turtle.html)
 
 ## Examples (cool things you can draw with <= 2000 discord characters):
 
