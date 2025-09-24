@@ -33,6 +33,8 @@
   - Color pixel at x,y with color c manually by: `dc->body[y*dc->width+x]=c;`
 
 ### Drawing (Simplified Turtle API)
+  - Turtle default pen color is yellow.
+  - Turtle default start location is the center of the image.
   - See [available Turtle API drawing functions](https://tinkeros.github.io/HolyGFX/turtle.html)
 
 ## Examples (cool things you can draw with <= 2000 discord characters):
