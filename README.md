@@ -24,7 +24,9 @@
   - Color pixel at x,y with color c manually by: `dc->body[y*dc->width+x]=c;`
 
 ### Default Color Map:
-[Temple/TinkerOS default color maps](https://tinkeros.github.io/palette.html)
+  - Set color number with `dc->color=NUMBER;`
+  - Get color numbers from [Temple/TinkerOS default color maps](https://tinkeros.github.io/palette.html)
+  - You can also use the TempleOS color defines `BLACK`, `BLUE`, ... `WHITE`   [TempleOS color defines](https://tinkeros.github.io/WbTempleOS/Kernel/KernelA.html#l2914)
 
 ### You can change colors 0-254 to be whatever RGB888 value you want with:
  - `GrSetRGB(I64 color_number, U8 red, U8 green, U8 blue);`
