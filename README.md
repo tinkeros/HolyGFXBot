@@ -5,7 +5,7 @@
  - `!hg` - creates single frame static image
  - `!hgds` creates animated "ditherspark" GIF (draws the same frame 4 times with different dithering and loops)
 
-### Optional space delimited image dimension parameters (each should be a multiple of 8):
+### Optional space delimited dimension parameters (each should be a multiple of 8):
 - `width` - image width (default 240, up to 1920)
 - `height` - image height (default 240, up to 1080)
 
@@ -13,7 +13,7 @@
 - Code block of text
 - Attached .HC or .TXT file with code to execute
 
-### Optional defines and variable (hgds only)
+### Optional defines and variable (hgds only):
 - Define up to 100 frames to be drawn with `#define NUM_FRAMES 100`
 - Use frame count variable `frame_num` in your code to change what you draw (goes from 0 to NUM_FRAMES - 1).
 - Each frame is drawn for 1/10th of a second.
@@ -21,19 +21,22 @@
 
 ### Setting Pen Color and Default Color Map:
   - Set color number with `dc->color=NUMBER;`
-  - Get color numbers from [Temple/TinkerOS default color maps](https://tinkeros.github.io/palette.html)
+  - Get default color numbers for the first 230 colors from [Temple/TinkerOS default color maps](https://tinkeros.github.io/palette.html)
   - You can also use the TempleOS color defines `BLACK`, `BLUE`, ... ,`WHITE`   [TempleOS color defines](https://tinkeros.github.io/WbTempleOS/Kernel/KernelA.html#l2914)
   - You can find the nearest extended palette color with `I64 GetColorNum(U8 r, U8 g, U8 b)` (assuming you didn't change the default palette)
   - For the simplified "Turtle API" use `PenSetColor(NUMBER);` and `TurtleSetFillColor(NUMBER);`
 
-### Changing colors 0-254 to ang RGB888 value is possible
-  - `GrSetRGB(I64 color_number, U8 red, U8 green, U8 blue);`
+### Changing colors 0-254 to any RGB888 value is possible:
+  - `GrSetRGB(I64 color_number, U8 red, U8 green, U8 blue);` * Note this may break `GetColorNum`
+  - You can change any color from 0-254.
+  - Colors 0 thru 229 have set [default values](https://tinkeros.github.io/palette.html) (but you can change them).
+  - Colors 230 thru 254 are in an undefined state on startup (could be anything).
 
 ### Drawing (TempleOS API):
   - The standard TempleOS graphics API can be used to draw to `dc`  [TempleOS graphics routines](https://tinkeros.github.io/WbTempleOS/LiveHelp/Graphics.html)
   - Color pixel at x,y with color c manually by: `dc->body[y*dc->width+x]=c;`
 
-### Drawing (Simplified Turtle API)
+### Drawing (Simplified Turtle API):
   - Turtle default pen color is yellow.
   - Turtle default start location is the center of the image.
   - See [available Turtle API drawing functions](https://tinkeros.github.io/HolyGFX/turtle.html)
