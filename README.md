@@ -19,17 +19,20 @@
 - Each frame is drawn for 1/10th of a second.
 - The dc/image width is `TR_WIDTH` and height is `TR_HEIGHT` (set by width/height parameters following hg or hgds)
 
-### Drawing:
-  - The standard TempleOS graphics API can be used to draw to `dc`  [TempleOS graphics routines](https://tinkeros.github.io/WbTempleOS/LiveHelp/Graphics.html)
-  - Color pixel at x,y with color c manually by: `dc->body[y*dc->width+x]=c;`
-
 ### Setting Pen Color and Default Color Map:
   - Set color number with `dc->color=NUMBER;`
   - Get color numbers from [Temple/TinkerOS default color maps](https://tinkeros.github.io/palette.html)
   - You can also use the TempleOS color defines `BLACK`, `BLUE`, ... `WHITE`   [TempleOS color defines](https://tinkeros.github.io/WbTempleOS/Kernel/KernelA.html#l2914)
+  - For the simplified "Turtle API" use `PenSetColor(NUMBER);` and `TurtleSetFillColor(NUMBER);`
 
-### You can change colors 0-254 to be whatever RGB888 value you want with:
- - `GrSetRGB(I64 color_number, U8 red, U8 green, U8 blue);`
+### Changing colors 0-254 to ang RGB888 value is possible
+  - `GrSetRGB(I64 color_number, U8 red, U8 green, U8 blue);`
+
+### Drawing (TempleOS API):
+  - The standard TempleOS graphics API can be used to draw to `dc`  [TempleOS graphics routines](https://tinkeros.github.io/WbTempleOS/LiveHelp/Graphics.html)
+  - Color pixel at x,y with color c manually by: `dc->body[y*dc->width+x]=c;`
+
+### Drawing (Simplified Turtle API)
 
 ## Examples (cool things you can draw with <= 2000 discord characters):
 
