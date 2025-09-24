@@ -27,3 +27,25 @@ THome;
 TSetFillColor(BLUE);
 TFill;
 ```
+
+### 216x64 Gradient showing extended color palette shades of green
+<center><img src="https://tinkeros.github.io/HolyGFX/extgreen.png"></center>
+
+!hg 216 64
+
+```
+/* Use GetColorNum to find the nearest TinkerOS 
+ * extended palette color to a given input r,g,b
+ *
+ * Extended palette has 6 shades of each color */
+
+// Draw the 6 shades of green
+U8 g=0;
+I64 i;
+for (i=0;i<TR_WIDTH;i++)
+{
+PenSetColor(GetColorNum(0,(i/36)*0x33,0));
+TSetPos(i,TR_HEIGHT);
+TFd(TR_HEIGHT);
+}
+```
