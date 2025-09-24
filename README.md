@@ -36,6 +36,7 @@
   - Turtle default pen color is yellow.
   - Turtle default start location is the center of the image.
   - See [available Turtle API drawing functions](https://tinkeros.github.io/HolyGFX/turtle.html)
+  - [Turtle examples](https://github.com/tinkeros/HolyGFXBot/blob/master/TurtleExamples.md)
 
 ## Examples (cool things you can draw with <= 2000 discord characters):
 
