@@ -23,6 +23,7 @@
   - Set color number with `dc->color=NUMBER;`
   - Get color numbers from [Temple/TinkerOS default color maps](https://tinkeros.github.io/palette.html)
   - You can also use the TempleOS color defines `BLACK`, `BLUE`, ... ,`WHITE`   [TempleOS color defines](https://tinkeros.github.io/WbTempleOS/Kernel/KernelA.html#l2914)
+  - You can find the nearest extended palette color with `I64 GetColorNum(U8 r, U8 g, U8 b)` (assuming you didn't change the default palette)
   - For the simplified "Turtle API" use `PenSetColor(NUMBER);` and `TurtleSetFillColor(NUMBER);`
 
 ### Changing colors 0-254 to ang RGB888 value is possible
