@@ -13,10 +13,11 @@
 - Code block of text
 - Attached .HC or .TXT file with code to execute
 
-### Optional Frame Parameters and Variable (hgds only)
+### Optional defines and variable (hgds only)
 - Define up to 100 frames to be drawn with `#define NUM_FRAMES 100`
 - Use frame count variable `frame_num` in your code to change what you draw (goes from 0 to NUM_FRAMES - 1).
 - Each frame is drawn for 1/10th of a second.
+- The dc/image width is `TR_WIDTH` and height is `TR_HEIGHT` (set by width/height parameters following hg or hgds)
 
 ### Drawing:
   - The standard TempleOS graphics API can be used to draw to `dc`
