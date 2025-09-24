@@ -74,6 +74,87 @@ DocPrint(d,"%s",sw);
 Sprite3B(dc,120,120,0,Code2Sprite(d));
 ```
 
+### 120x32 Blink Test
+<center><img src="https://tinkeros.github.io/HolyGFX/blink.gif"></center>
+!hgds 120 32
+
+```
+#define NUM_FRAMES 100
+if ((frame_num/2)%2) {
+  DCFill(dc,BLACK);
+  dc->color=WHITE;
+}
+else {
+  DCFill(dc,WHITE);
+  dc->color=BLACK;
+}
+U8 *str="Blink Test!";
+I64 x=TR_WIDTH/2 - 8*StrLen(str)/2;
+GrPrint3(dc,x,TR_HEIGHT/2-4,0,str);
+```
+
+
+### 160x160 Hexagonal Prism
+<center><img src="https://tinkeros.github.io/HolyGFX/hexp.gif"></center>
+!hgds 160 160
+
+```
+#define PI 3.14159
+#define NUM_SIDES 6
+#define NUM_FRAMES 100
+static CD3I32 top_poly[NUM_SIDES];
+static CD3I32 bottom_poly[NUM_SIDES];
+static CD3I32 side_face[NUM_SIDES][4];
+Mat4x4RotX(dc->r,ToF64(frame_num)*PI/4.0);
+Mat4x4RotZ(dc->r,ToF64(2.0*frame_num)*PI/ToI64(NUM_FRAMES));
+dc->flags|=DCF_TRANSFORMATION;
+dc->x=TR_WIDTH/2;
+dc->y=TR_HEIGHT/2;
+dc->thick=1;
+dc->dither_probability_u16=1<<15;
+
+F64 angle, angle_step, height, radius, x_off, y_off, z_off;
+
+I64 i, next;
+angle_step = 2.0 * PI / NUM_SIDES;
+radius = 50.0;
+height = 75.0;
+
+for (i=0; i<NUM_SIDES; i++) {
+    angle = angle_step * i;
+    x_off = radius * Cos(angle);
+    y_off = radius * Sin(angle);
+    z_off = height / 2.0;
+
+    top_poly[i].x = ToI64(x_off);
+    top_poly[i].y = ToI64(y_off);
+    top_poly[i].z = ToI64(z_off);
+
+    bottom_poly[i].x = ToI64(x_off);
+    bottom_poly[i].y = ToI64(y_off);
+    bottom_poly[i].z = ToI64(-z_off);
+}
+
+dc->color=ROPF_PROBABILITY_DITHER+DKGRAY<<16+WHITE;
+GrFillPoly3(dc,NUM_SIDES,&bottom_poly);
+
+dc->color=ROPF_PROBABILITY_DITHER+CYAN<<16+BLUE;
+GrFillPoly3(dc,NUM_SIDES,&top_poly);
+
+for(i=0; i<NUM_SIDES; i++) {
+    next = (i + 1) % NUM_SIDES;
+
+    MemCpy(&side_face[i][0],&bottom_poly[i],sizeof(CD3I32));
+    MemCpy(&side_face[i][1],&bottom_poly[next],sizeof(CD3I32));
+    MemCpy(&side_face[i][2],&top_poly[next],sizeof(CD3I32));
+    MemCpy(&side_face[i][3],&top_poly[i],sizeof(CD3I32));
+
+    dc->color=ROPF_PROBABILITY_DITHER+(BLUE+8+i)<<16+(BLUE+i);
+    
+    GrFillPoly3(dc,4,&side_face[i]);
+}
+```
+
 ### 240x240 Texas dithersparkle flag
 <center><img src="https://tinkeros.github.io/HolyGFX/TXDS.gif"></center>
 !hgds
