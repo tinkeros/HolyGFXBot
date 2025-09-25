@@ -3,7 +3,7 @@
 
 ### Valid commands are:
  - `!hg` - creates single frame static image
- - `!hgds` creates animated "ditherspark" GIF (draws the same frame 4 times with different dithering and loops)
+ - `!hgds` creates animated "ditherspark" GIF
 
 ### Optional space delimited dimension parameters (each should be a multiple of 8):
 - `width` - image width (default 240, up to 1920)
@@ -15,9 +15,12 @@
 - Attached .HC or .TXT file with code to execute
 
 ### Optional defines and variable (hgds only):
+- By default `!hgds` will simply call your code 4 times and make a 4 frame animited gif.
 - Define up to 100 frames to be drawn with `#define NUM_FRAMES 100`
-- Use frame count variable `frame_num` in your code to change what you draw (goes from 0 to NUM_FRAMES - 1).
+- Use frame count variable `frame_num` in your code to change what is drawn (goes from 0 to NUM_FRAMES - 1).
 - Each frame is drawn for 1/10th of a second.
+- You can slow down the frame rate by dividing `frame_num` by an integer and using that instead to decided when to change images.
+- To make things loop and display equally if you use a divisor on `frame_num` that divisor should also evenly divide `NUM_FRAMES`
 
 ### Setting Pen Color and Default Color Map:
   - Set color number with `dc->color=NUMBER;`
