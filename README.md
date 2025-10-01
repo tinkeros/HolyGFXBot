@@ -48,7 +48,8 @@
 ### Converting image files using GIMP (linux)
   - Install `tinkeros.gpl` into your `.config/GIMP/<GIMP version number here>/palettes/` folder
   - Scale image so both dimensions are a multiple of 8
-  - Image -> Mode -> Indexed (Use custom palette TinkerOS, uncheck "Remove unused and duplicate colors from colormap, choose desired dithering)
+  - Flatten the image to remove any alpha channel (Image -> Flatten Image)
+  - Image -> Mode -> Indexed (Use custom palette TinkerOS, uncheck "Remove unused and duplicate colors from colormap", choose dithering option if desired)
   - Save image as RAW (this will produce a file whose size is exactly width*height bytes, where each byte is the correspond TinkerOS color for that pixel)
   - Now you can make reformat the bytes as an array in code and get boiler plate code to draw it with `python3 raw2bytearray.py image.raw width height`
 
