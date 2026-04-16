@@ -5,6 +5,7 @@
  - `!hg` - creates single frame static image
  - `!hgds` - creates animated "ditherspark" GIF
  - `!png2gr` - converts attached PNG image to TempleOS GR format (16 colors plus transparent).
+ - `!png2ds` - converts attached PNG image to dithersparkle GIF (16 colors plus transparent).
 
 ### Optional space delimited dimension parameters (each should be a multiple of 8):
 - `width` - image width (default 240, up to 1920)
