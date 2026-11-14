@@ -29,7 +29,7 @@
 
 ### Setting Pen Color and Default Color Map:
   - Set color number with `dc->color=NUMBER;`
-  - Get default color numbers for the first 230 colors from [Temple/TinkerOS default color maps](https://tinkeros.github.io/palette.html)
+  - Get color numbers for the first 230 colors from [Temple/TinkerOS default color maps](https://tinkeros.github.io/palette.html) or sorted by color from here [Sorted TinkerOS color palette](https://tinkeros.github.io/palette_sorted.html)
   - You can also use the TempleOS color defines `BLACK`, `BLUE`, ... ,`WHITE`   [TempleOS color defines](https://tinkeros.github.io/WbTempleOS/Kernel/KernelA.html#l2914)
   - You can find the nearest extended palette color with `I64 GetColorNum(U8 r, U8 g, U8 b)` (assuming you didn't change the default palette)
   - For the simplified "Turtle API" use `PenSetColor(NUMBER);` and `TurtleSetFillColor(NUMBER);`
